@@ -15,8 +15,8 @@
 
 ## 3. Service implementation
 
-- [ ] 3.1 Implement `S3StorageService.putObject(bucket, key, bytes)` uploading via `S3Client`
-- [ ] 3.2 Implement `S3StorageService.getObject(bucket, key)` downloading and returning bytes via `S3Client`
+- [x] 3.1 Implement `S3StorageService.putObject(bucket, key, bytes)` uploading via `S3Client`
+- [x] 3.2 Implement `S3StorageService.getObject(bucket, key)` downloading and returning bytes via `S3Client`
 
 ## 4. Integration tests
 
