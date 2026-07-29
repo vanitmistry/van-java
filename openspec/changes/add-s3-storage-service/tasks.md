@@ -20,12 +20,12 @@
 
 ## 4. Integration tests
 
-- [ ] 4.1 Add `S3StorageServiceIT` annotated with `@Testcontainers`, declaring a `LocalStackContainer` with the S3 service enabled
-- [ ] 4.2 Wire the test Spring context (or manually built `S3Client`) to the container's S3 endpoint and dummy credentials
-- [ ] 4.3 Create the test bucket in `@BeforeAll`/`@BeforeEach` against the running container
-- [ ] 4.4 Write test: successful upload results in an object existing in the bucket
-- [ ] 4.5 Write test: successful download returns previously stored content
-- [ ] 4.6 Write test: round-trip put-then-get returns byte-identical content
+- [x] 4.1 Add `S3StorageServiceIT` annotated with `@Testcontainers`, declaring a `LocalStackContainer` with the S3 service enabled
+- [x] 4.2 Wire the test Spring context (or manually built `S3Client`) to the container's S3 endpoint and dummy credentials
+- [x] 4.3 Create the test bucket in `@BeforeAll`/`@BeforeEach` against the running container
+- [x] 4.4 Write test: successful upload results in an object existing in the bucket
+- [x] 4.5 Write test: successful download returns previously stored content
+- [x] 4.6 Write test: round-trip put-then-get returns byte-identical content
 
 ## 5. Verification
 

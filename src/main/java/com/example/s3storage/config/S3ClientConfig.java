@@ -11,6 +11,7 @@ import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.S3ClientBuilder;
 
 @Configuration
 @EnableConfigurationProperties(S3Properties.class)
@@ -18,7 +19,7 @@ public class S3ClientConfig {
 
     @Bean
     public S3Client s3Client(S3Properties properties) {
-        S3Client.Builder builder = S3Client.builder()
+        S3ClientBuilder builder = S3Client.builder()
                 .region(Region.of(properties.getRegion()));
 
         if (StringUtils.hasText(properties.getEndpointOverride())) {
