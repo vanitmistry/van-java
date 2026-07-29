@@ -1,10 +1,10 @@
 ## 1. Project scaffold
 
-- [ ] 1.1 Generate Maven project structure (`pom.xml`, `src/main/java`, `src/main/resources`, `src/test/java`) targeting Java 21
-- [ ] 1.2 Add Spring Boot parent/BOM and `spring-boot-starter` dependency
-- [ ] 1.3 Add AWS SDK v2 BOM and `software.amazon.awssdk:s3` dependency
-- [ ] 1.4 Add test dependencies: `spring-boot-starter-test`, JUnit 5, Testcontainers core, Testcontainers LocalStack module
-- [ ] 1.5 Configure Maven Surefire/Failsafe (or equivalent) so integration tests run via `mvn test`
+- [x] 1.1 Generate Maven project structure (`pom.xml`, `src/main/java`, `src/main/resources`, `src/test/java`) targeting Java 21
+- [x] 1.2 Add Spring Boot parent/BOM and `spring-boot-starter` dependency
+- [x] 1.3 Add AWS SDK v2 BOM and `software.amazon.awssdk:s3` dependency
+- [x] 1.4 Add test dependencies: `spring-boot-starter-test`, JUnit 5, Testcontainers core, Testcontainers LocalStack module
+- [x] 1.5 Configure Maven Surefire/Failsafe (or equivalent) so integration tests run via `mvn test`
 
 ## 2. Configuration
 
