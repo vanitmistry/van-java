@@ -8,10 +8,10 @@
 
 ## 2. Configuration
 
-- [ ] 2.1 Create `S3Properties` (`@ConfigurationProperties`) for bucket name, region, and optional endpoint override
-- [ ] 2.2 Create `S3ClientConfig` with an `S3Client` `@Bean`: default profile uses default credential provider chain and no endpoint override
-- [ ] 2.3 Add `application.yml` (default/real-AWS profile) with bucket/region properties
-- [ ] 2.4 Add `application-local.yml` with LocalStack endpoint override and static dummy credentials (`test`/`test`)
+- [x] 2.1 Create `S3Properties` (`@ConfigurationProperties`) for bucket name, region, and optional endpoint override
+- [x] 2.2 Create `S3ClientConfig` with an `S3Client` `@Bean`: default profile uses default credential provider chain and no endpoint override
+- [x] 2.3 Add `application.yml` (default/real-AWS profile) with bucket/region properties
+- [x] 2.4 Add `application-local.yml` with LocalStack endpoint override and static dummy credentials (`test`/`test`)
 
 ## 3. Service implementation
 

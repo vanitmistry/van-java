@@ -1,0 +1,5 @@
+app:
+  s3:
+    bucket: s3-storage-service-bucket
+    region: us-east-1
+    endpoint-override: http://localhost:4566
