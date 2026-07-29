@@ -29,5 +29,5 @@
 
 ## 5. Verification
 
-- [ ] 5.1 Run `mvn test` locally with Docker running and confirm all tests pass with no manual setup steps
-- [ ] 5.2 Confirm the default (non-local) profile compiles/wires correctly without requiring LocalStack (no runtime verification against real AWS needed)
+- [x] 5.1 Run `mvn test` locally with Docker running and confirm all tests pass with no manual setup steps
+- [x] 5.2 Confirm the default (non-local) profile compiles/wires correctly without requiring LocalStack (no runtime verification against real AWS needed)

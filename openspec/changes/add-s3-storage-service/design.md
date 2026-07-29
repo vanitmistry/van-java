@@ -37,6 +37,8 @@ No credentials are hardcoded or stored in the repo. Real AWS usage relies on wha
 - [Docker not available in some environments (e.g. certain CI runners, restricted dev machines)] → Integration tests will fail to start LocalStack; document Docker as a prerequisite in the project README/tasks.
 - [LocalStack S3 behavior can diverge from real AWS S3 in edge cases (e.g. some error responses, advanced features)] → Acceptable for this project's scope (basic put/get only); not a concern for the operations covered here.
 - [Profile misconfiguration could accidentally point "local" credentials/endpoint at production] → Mitigated by keeping the LocalStack endpoint override and dummy credentials strictly under the `local`/`test` Spring profile, never the default.
+- [Testcontainers 1.x's bundled docker-java client is incompatible with Docker Engine 29's minimum API version (1.40+); it hardcodes a fallback of API 1.32 for some calls, causing container/image inspection to fail] → Pinned `testcontainers-bom` to `2.0.5`, which negotiates the Docker API version correctly. Discovered during implementation; noted here since it affects any future dependency bump.
+- [LocalStack merged its Community and Pro images into one starting with the `2026.3.0` release; the `latest` tag and all CalVer tags (e.g. `2026.07.1`) now require a `LOCALSTACK_AUTH_TOKEN` and exit with a license error otherwise, which breaks the "no credentials needed" test goal] → Pinned the LocalStack image to `4.4.0`, the last pre-merge community release that still runs without any auth token. Revisit if a future community-only image becomes available again.
 
 ## Open Questions
 

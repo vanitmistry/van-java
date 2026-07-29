@@ -36,7 +36,7 @@ class S3StorageServiceIT {
 
     @Container
     static LocalStackContainer localstack =
-            new LocalStackContainer(DockerImageName.parse("localstack/localstack:2026.07.1"))
+            new LocalStackContainer(DockerImageName.parse("localstack/localstack:4.4.0"))
                     .withServices(Service.S3);
 
     @DynamicPropertySource
