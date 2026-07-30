@@ -1,4 +1,4 @@
-package com.example.s3storage.service;
+package com.example.aws.service;
 
 import java.util.Base64;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.example.s3storage.config.SqsProperties;
+import com.example.aws.config.SqsProperties;
 
 import software.amazon.awssdk.services.sqs.SqsClient;
 import software.amazon.awssdk.services.sqs.model.DeleteMessageRequest;

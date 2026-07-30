@@ -1,4 +1,4 @@
-package com.example.s3storage;
+package com.example.aws;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;

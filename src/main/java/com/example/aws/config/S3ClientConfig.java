@@ -1,4 +1,4 @@
-package com.example.s3storage.config;
+package com.example.aws.config;
 
 import java.net.URI;
 
@@ -10,22 +10,23 @@ import org.springframework.util.StringUtils;
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.sqs.SqsClient;
-import software.amazon.awssdk.services.sqs.SqsClientBuilder;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.S3ClientBuilder;
 
 @Configuration
-@EnableConfigurationProperties(SqsProperties.class)
-public class SqsClientConfig {
+@EnableConfigurationProperties(S3Properties.class)
+public class S3ClientConfig {
 
     @Bean
-    public SqsClient sqsClient(SqsProperties properties) {
-        SqsClientBuilder builder = SqsClient.builder()
+    public S3Client s3Client(S3Properties properties) {
+        S3ClientBuilder builder = S3Client.builder()
                 .region(Region.of(properties.getRegion()));
 
         if (StringUtils.hasText(properties.getEndpointOverride())) {
             builder.endpointOverride(URI.create(properties.getEndpointOverride()))
                     .credentialsProvider(StaticCredentialsProvider.create(
-                            AwsBasicCredentials.create("test", "test")));
+                            AwsBasicCredentials.create("test", "test")))
+                    .forcePathStyle(true);
         }
 
         return builder.build();

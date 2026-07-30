@@ -1,4 +1,4 @@
-package com.example.s3storage;
+package com.example.aws;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

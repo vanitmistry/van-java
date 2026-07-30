@@ -1,4 +1,4 @@
-package com.example.s3storage.testsupport;
+package com.example.aws.testsupport;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;

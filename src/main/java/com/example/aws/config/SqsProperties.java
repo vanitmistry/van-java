@@ -1,4 +1,4 @@
-package com.example.s3storage.config;
+package com.example.aws.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

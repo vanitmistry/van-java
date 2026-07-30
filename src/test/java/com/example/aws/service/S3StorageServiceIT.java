@@ -1,4 +1,4 @@
-package com.example.s3storage.service;
+package com.example.aws.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testcontainers.containers.localstack.LocalStackContainer.Service;
 
-import com.example.s3storage.testsupport.AbstractLocalStackIT;
+import com.example.aws.testsupport.AbstractLocalStackIT;
 
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;

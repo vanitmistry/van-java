@@ -1,4 +1,4 @@
-package com.example.s3storage.service;
+package com.example.aws.service;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
