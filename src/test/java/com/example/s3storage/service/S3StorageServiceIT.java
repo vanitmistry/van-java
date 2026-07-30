@@ -7,15 +7,9 @@ import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.localstack.LocalStackContainer;
 import org.testcontainers.containers.localstack.LocalStackContainer.Service;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.utility.DockerImageName;
+
+import com.example.s3storage.testsupport.AbstractLocalStackIT;
 
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
@@ -27,23 +21,9 @@ import software.amazon.awssdk.services.s3.model.HeadObjectRequest;
 import software.amazon.awssdk.services.s3.model.HeadObjectResponse;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
-@Testcontainers
-@SpringBootTest
-@ActiveProfiles("local")
-class S3StorageServiceIT {
+class S3StorageServiceIT extends AbstractLocalStackIT {
 
     private static final String BUCKET = "s3-storage-service-bucket";
-
-    @Container
-    static LocalStackContainer localstack =
-            new LocalStackContainer(DockerImageName.parse("localstack/localstack:4.4.0"))
-                    .withServices(Service.S3);
-
-    @DynamicPropertySource
-    static void s3Properties(DynamicPropertyRegistry registry) {
-        registry.add("app.s3.endpoint-override", () -> localstack.getEndpointOverride(Service.S3).toString());
-        registry.add("app.s3.region", localstack::getRegion);
-    }
 
     @Autowired
     private S3StorageService s3StorageService;
@@ -54,10 +34,10 @@ class S3StorageServiceIT {
     @BeforeAll
     static void createBucket() {
         try (S3Client bootstrapClient = S3Client.builder()
-                .endpointOverride(localstack.getEndpointOverride(Service.S3))
-                .region(Region.of(localstack.getRegion()))
+                .endpointOverride(LOCALSTACK.getEndpointOverride(Service.S3))
+                .region(Region.of(LOCALSTACK.getRegion()))
                 .credentialsProvider(StaticCredentialsProvider.create(
-                        AwsBasicCredentials.create(localstack.getAccessKey(), localstack.getSecretKey())))
+                        AwsBasicCredentials.create(LOCALSTACK.getAccessKey(), LOCALSTACK.getSecretKey())))
                 .forcePathStyle(true)
                 .build()) {
             bootstrapClient.createBucket(CreateBucketRequest.builder().bucket(BUCKET).build());

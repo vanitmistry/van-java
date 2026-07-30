@@ -6,3 +6,7 @@ app:
   s3:
     bucket: s3-storage-service-bucket
     region: us-east-1
+  sqs:
+    out-queue-name: out-queue
+    in-queue-name: in-queue
+    region: us-east-1
