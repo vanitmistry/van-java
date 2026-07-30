@@ -15,7 +15,7 @@ import software.amazon.awssdk.services.sqs.model.GetQueueUrlRequest;
 import software.amazon.awssdk.services.sqs.model.GetQueueUrlResponse;
 
 @SpringBootTest(properties = "spring.main.allow-bean-definition-overriding=true")
-class S3StorageServiceApplicationTests {
+class AwsServiceApplicationTests {
 
     @TestConfiguration
     static class StubSqsClientConfig {
