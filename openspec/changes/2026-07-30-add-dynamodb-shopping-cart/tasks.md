@@ -223,7 +223,7 @@
 ### 3.4 Create Global Exception Handler
 **Time**: 30 min
 
-- [ ] Create `src/main/java/com/example/aws/api/GlobalExceptionHandler.java`
+- [x] Create `src/main/java/com/example/aws/api/GlobalExceptionHandler.java`
   - `@RestControllerAdvice`
   - Handle CartStatusTransitionException → 400
   - Handle InsufficientStockException → 400
@@ -231,8 +231,8 @@
   - Handle ProductNotFoundException → 404
   - Handle DynamoDbException → 500
   
-- [ ] Return ErrorResponse for all exceptions
-- [ ] Commit: "Add global exception handler"
+- [x] Return ErrorResponse for all exceptions
+- [x] Commit: "Add global exception handler"
 
 ### 3.5 Enable Swagger/OpenAPI
 **Time**: 15 min
@@ -253,40 +253,40 @@
 ### 4.1 Create LocalStack Integration Test Base
 **Time**: 30 min
 
-- [ ] Extend `AbstractLocalStackIT` with DynamoDB support
+- [x] Extend `AbstractLocalStackIT` with DynamoDB support
   - Verify LocalStack is running with S3, SQS, and DynamoDB services
   - Ensure tables are created before tests run
   
-- [ ] Create `src/test/java/com/example/aws/cart/CartIntegrationTest.java`
+- [x] Create `src/test/java/com/example/aws/cart/AbstractShoppingCartIT.java`
   - Annotate with `@SpringBootTest`, `@ActiveProfiles("local")`
   - Inject CartService, ProductService
   
-- [ ] Commit: "Add LocalStack integration test setup for DynamoDB"
+- [x] Commit: "Add LocalStack integration test setup for DynamoDB"
 
 ### 4.2 Integration Tests: Cart Lifecycle
 **Time**: 1.5 hours
 
-- [ ] Test: CreateCart → GetCart
-- [ ] Test: CreateProduct → GetProduct
-- [ ] Test: AddItem → GetCartItems (full flow)
-- [ ] Test: AddItem with partial fill (5 requested, 3 available)
-- [ ] Test: UpdateItem increasing quantity (partial fill scenario)
-- [ ] Test: UpdateItem decreasing quantity (restore stock)
-- [ ] Test: RemoveItem (restore all stock)
-- [ ] Test: CheckoutCart (status: PENDING → PAID)
-- [ ] Test: Cannot modify items after checkout
-- [ ] Test: Stock stays reserved after checkout
-- [ ] Commit: "Add comprehensive cart integration tests"
+- [x] Test: CreateCart → GetCart
+- [x] Test: CreateProduct → GetProduct
+- [x] Test: AddItem → GetCartItems (full flow)
+- [x] Test: AddItem with partial fill (5 requested, 3 available)
+- [x] Test: UpdateItem increasing quantity (partial fill scenario)
+- [x] Test: UpdateItem decreasing quantity (restore stock)
+- [x] Test: RemoveItem (restore all stock)
+- [x] Test: CheckoutCart (status: PENDING → PAID)
+- [x] Test: Cannot modify items after checkout
+- [x] Test: Stock stays reserved after checkout
+- [x] Commit: "Add comprehensive cart integration tests"
 
 ### 4.3 Integration Tests: Error Cases
 **Time**: 1 hour
 
-- [ ] Test: AddItem with zero available stock → error
-- [ ] Test: RemoveItem from non-existent cart → 404
-- [ ] Test: UpdateItem to zero quantity → delete item
-- [ ] Test: Invalid status transition → error
-- [ ] Test: Concurrent adds to same product (transaction isolation)
-- [ ] Commit: "Add integration tests for error scenarios"
+- [x] Test: AddItem with zero available stock → error
+- [x] Test: RemoveItem from non-existent cart → 404
+- [x] Test: UpdateItem to zero quantity → delete item
+- [x] Test: Invalid status transition → error
+- [x] Test: Concurrent adds to same product (transaction isolation)
+- [x] Commit: "Add integration tests for error scenarios"
 
 ---
 
@@ -295,26 +295,26 @@
 ### 5.1 Add Code Documentation
 **Time**: 30 min
 
-- [ ] Add JavaDoc to all public service methods
-- [ ] Add inline comments for complex transaction logic
-- [ ] Commit: "Add service layer documentation"
+- [x] Add JavaDoc to all public service methods
+- [x] Add inline comments for complex transaction logic
+- [x] Commit: "Add service layer documentation"
 
 ### 5.2 Build & Full Test
 **Time**: 30 min
 
-- [ ] Run `mvn clean verify` (all tests)
-- [ ] Verify Swagger UI shows all endpoints
-- [ ] Test one endpoint manually in Swagger UI
-- [ ] Verify LocalStack integration tests pass
-- [ ] Commit: "Verify all tests pass, Swagger UI functional"
+- [x] Run `mvn clean verify` (all tests)
+- [x] Verify Swagger UI shows all endpoints
+- [x] Test one endpoint manually in Swagger UI
+- [x] Verify LocalStack integration tests pass
+- [x] Commit: "Verify all tests pass, Swagger UI functional"
 
 ### 5.3 Update README
 **Time**: 15 min
 
-- [ ] Add DynamoDB section to project README
-- [ ] Document how to access Swagger UI
-- [ ] Document sample curl commands for cart operations
-- [ ] Commit: "Update README with shopping cart API docs"
+- [x] Add DynamoDB section to project README
+- [x] Document how to access Swagger UI
+- [x] Document sample curl commands for cart operations
+- [x] Commit: "Update README with shopping cart API docs"
 
 ---
 
