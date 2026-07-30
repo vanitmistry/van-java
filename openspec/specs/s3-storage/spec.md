@@ -2,7 +2,7 @@
 
 ## Purpose
 
-TBD - added by change add-s3-storage-service. Update Purpose after archive.
+Provides read and write access to objects in an AWS S3 bucket via a Spring service backed by AWS SDK v2, configurable to target either real AWS or a local LocalStack instance for hermetic testing.
 
 ## Requirements
 
