@@ -10,3 +10,5 @@ app:
     out-queue-name: out-queue
     in-queue-name: in-queue
     region: us-east-1
+  dynamodb:
+    region: us-east-1

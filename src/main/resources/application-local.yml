@@ -8,3 +8,6 @@ app:
     in-queue-name: in-queue
     region: us-east-1
     endpoint-override: http://localhost:4566
+  dynamodb:
+    region: us-east-1
+    endpoint-override: http://localhost:4566
