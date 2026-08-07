@@ -4,12 +4,19 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.concurrent.CompletableFuture;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 
+import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;
+import software.amazon.awssdk.services.dynamodb.model.CreateTableRequest;
+import software.amazon.awssdk.services.dynamodb.model.CreateTableResponse;
+import software.amazon.awssdk.services.dynamodb.model.ListTablesRequest;
+import software.amazon.awssdk.services.dynamodb.model.ListTablesResponse;
 import software.amazon.awssdk.services.sqs.SqsClient;
 import software.amazon.awssdk.services.sqs.model.GetQueueUrlRequest;
 import software.amazon.awssdk.services.sqs.model.GetQueueUrlResponse;
@@ -19,6 +26,18 @@ class AwsServiceApplicationTests {
 
     @TestConfiguration
     static class StubSqsClientConfig {
+
+        @Bean
+        @Primary
+        DynamoDbAsyncClient dynamoDbAsyncClient() {
+            DynamoDbAsyncClient stub = mock(DynamoDbAsyncClient.class);
+            when(stub.listTables(any(ListTablesRequest.class)))
+                    .thenReturn(CompletableFuture.completedFuture(
+                            ListTablesResponse.builder().tableNames(java.util.Collections.emptyList()).build()));
+            when(stub.createTable(any(CreateTableRequest.class)))
+                    .thenReturn(CompletableFuture.completedFuture(CreateTableResponse.builder().build()));
+            return stub;
+        }
 
         @Bean
         @Primary

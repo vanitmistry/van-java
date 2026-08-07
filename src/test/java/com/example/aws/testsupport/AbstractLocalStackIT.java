@@ -20,7 +20,7 @@ public abstract class AbstractLocalStackIT {
 
     protected static final LocalStackContainer LOCALSTACK =
             new LocalStackContainer(DockerImageName.parse("localstack/localstack:4.4.0"))
-                    .withServices(Service.S3, Service.SQS);
+                    .withServices(Service.S3, Service.SQS, Service.DYNAMODB);
 
     static {
         LOCALSTACK.start();
@@ -47,8 +47,7 @@ public abstract class AbstractLocalStackIT {
 
     /**
      * LocalStack serves every enabled service behind one edge port, so every subclass's
-     * Spring context needs both capabilities' endpoint override set here, not only the one
-     * the subclass's own test is exercising - all component-scanned beans (S3 and SQS alike)
+     * Spring context needs all endpoint overrides set here - all component-scanned beans
      * are constructed in every context regardless of which IT class is running.
      */
     @DynamicPropertySource
@@ -57,5 +56,7 @@ public abstract class AbstractLocalStackIT {
         registry.add("app.s3.region", LOCALSTACK::getRegion);
         registry.add("app.sqs.endpoint-override", () -> LOCALSTACK.getEndpointOverride(Service.SQS).toString());
         registry.add("app.sqs.region", LOCALSTACK::getRegion);
+        registry.add("app.dynamodb.endpoint-override", () -> LOCALSTACK.getEndpointOverride(Service.DYNAMODB).toString());
+        registry.add("app.dynamodb.region", LOCALSTACK::getRegion);
     }
 }
